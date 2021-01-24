@@ -27,18 +27,6 @@
                 outline: none;
             }
 
-            .window-button, .window .buttons .maximize, .window .buttons .minimize, .window .buttons .close {
-                padding: 0;
-                margin: 0;
-                margin-right: 4px;
-                width: 12px;
-                height: 12px;
-                background-color: gainsboro;
-                border: 1px solid rgba(0, 0, 0, 0.2);
-                border-radius: 6px;
-                color: rgba(0, 0, 0, 0.5);
-            }
-
             .window {
                 width: 100%;
             }
@@ -99,6 +87,16 @@
                 </div>
         </div>
         <script>
+            var banner=`
+                           **     ****           ** **                  ******   **       **
+ ******                   /**    /**/           /**//                  **////** /**      /**
+/**///**  ******  ****** ****** ******  ******  /** **  ******        **    //  /**      /**
+/**  /** **////**//**//*///**/ ///**/  **////** /**/** **////** *****/**        /**      /**
+/****** /**   /** /** /   /**    /**  /**   /** /**/**/**   /**///// /**        /**      /**
+/**///  /**   /** /**     /**    /**  /**   /** /**/**/**   /**      //**    ** /**      /**
+/**     //****** /***     //**   /**  //******  ***/**//******        //******  /********/**
+//       //////  ///       //    //    //////  /// //  //////          //////   //////// //                                  
+            `;
             var path = "";
             var skills = "java\t\tjavascript\t\tpython\t\tc\t\tc\+\+\t\tc#\t\truby-on-rails\t\tnode.js\t\tunity\t\texpress.js\t\tflask\t\tCOBOL\t\tarduino";
             var education = "currently_pursuing_bachelors_in computer_science_and_engineering";
@@ -110,7 +108,7 @@
                     value: about
                 },
                 {
-                    name: "contact",
+                    name: "contacts",
                     value: contacts
                 },
                 {
@@ -444,7 +442,7 @@
                     }
                 });
                 // Display welcome message and prompt
-                var date = new Date().toString(); date = date.substr(0, date.indexOf("GMT") - 1);
+                terminal.append(banner + "\n");
                 terminal.append("Welcome to Mushahid\'s command line portfolio.\nUse the \$help to find out the commands for this interface.\nHappy Hacking.\n");
                 displayPrompt();
             });
