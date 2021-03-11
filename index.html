@@ -172,7 +172,7 @@
                     args = args[0];
                     var isValid = false;
                     if (path == "" && args != null) {
-                        for (var i = 0; i < projects.length; i++) {
+                        for (var i = 0; i < home_.length; i++) {
                             if (args === home_[i].name) {
                                 terminal.append(home_[i].value + "\n");
                                 isValid = true;
