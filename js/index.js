@@ -68,6 +68,36 @@ var projects = [
         technologies: "python, opencv, pytorch",
         link: "https://github.com/mushahidq/DogsVsCats-Classification-convolutional_neural_network"
     },
+    {
+        name: "DuelBot",
+        description: "A quiz bot for discord with a twist",
+        technologies: "javascript, node.js, discord.js, linode",
+        link: "https://github.com/mushahidq/duelbot"
+    },
+    {
+        name: "tidy_api",
+        description: "A rest api that returns information about how to recycle things",
+        technologies: "javascript, node.js, express.js, datastax astra, cql",
+        link: "https://github.com/mushahidq/tidy_api"
+    },
+    {
+        name: "Psych-o-tech",
+        description: "A flask application with an emotion detection ai model to help psychiatrists.",
+        technologies: "python, flask, opencv, tensorflow",
+        link: "https://github.com/mushahidq/Psych-o-tech"
+    },
+    {
+        name: "smart-interface-for-da",
+        description: "An arduino based way for the differently abled to interact with some appliances and electronics in their home.",
+        technologies: "c++, tinkercad, arduino-uno, bluetooth hc-05 module",
+        link: "https://github.com/mushahidq/smart-interface-for-da"
+    },
+    {
+        name: "trackh2o",
+        description: "An arduino based device to help you stay hydrated",
+        technologies: "c++, tinkercad, arduino-uno, pir motion sensor",
+        link: "https://github.com/mushahidq/trackh2o"
+    },
 ];
 
 $(document).ready(function() {
