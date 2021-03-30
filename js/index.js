@@ -98,6 +98,13 @@ var projects = [
         technologies: "c++, tinkercad, arduino-uno, pir motion sensor",
         link: "https://github.com/mushahidq/trackh2o"
     },
+    {
+        name: "recyclinator",
+        description: "A discord bot that helps users recycle and reuse",
+        technologies: "python, discord.py, onnx runtime",
+        link: "https://github.com/mushahidq/recyclinator"
+    },
+    
 ];
 
 $(document).ready(function() {
