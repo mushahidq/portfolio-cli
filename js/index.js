@@ -104,6 +104,18 @@ var projects = [
         technologies: "python, discord.py, onnx runtime",
         link: "https://github.com/mushahidq/recyclinator"
     },
+    {
+        name: "pico-rick-roll",
+        description: "A raspberry pi pico rubber ducky device that will constantly rick roll",
+        technologies: "python, circuitpython, adafruit_usb_hid, Raspberry Pi Pico,",
+        link: "https://github.com/mushahidq/pico-rick-roll"
+    },
+    {
+        name: "pico-rick-roll-flutter-app",
+        description: "Flutter app for pico-rick-roll that connects over bluetooth",
+        technologies: "Flutter, Dart, flutter_bluetooth_serial",
+        link: "https://github.com/mushahidq/pico-rick-roll-flutter-app"
+    },
     
 ];
 
