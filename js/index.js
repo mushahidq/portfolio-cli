@@ -116,6 +116,12 @@ var projects = [
         technologies: "Flutter, Dart, flutter_bluetooth_serial",
         link: "https://github.com/mushahidq/pico-rick-roll-flutter-app"
     },
+    {
+          name: "twilioquest-extenception",
+          description: "A TwilioQuest extension to help users create their first extension.",
+          technologies: "JavaScript, Pug, Node.js, Tiled, TwilioQuest",
+          link: "https://github.com/mushahidq/twilioquest-extenception"
+      },
     
 ];
 
