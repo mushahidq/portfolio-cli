@@ -117,11 +117,17 @@ var projects = [
         link: "https://github.com/mushahidq/pico-rick-roll-flutter-app"
     },
     {
-          name: "twilioquest-extenception",
-          description: "A TwilioQuest extension to help users create their first extension.",
-          technologies: "JavaScript, Pug, Node.js, Tiled, TwilioQuest",
-          link: "https://github.com/mushahidq/twilioquest-extenception"
-      },
+        name: "twilioquest-extenception",
+        description: "A TwilioQuest extension to help users create their first extension.",
+        technologies: "JavaScript, Pug, Node.js, Tiled, TwilioQuest",
+        link: "https://github.com/mushahidq/twilioquest-extenception"
+    },
+    {
+        name: "pragya-schoolFromHome",
+        description: "A a centralized platform that provides a greater learning experience tailored to online learning. I worked on the fron-end for this app.",
+        technologies: "Django, JavaScript, HTML, CSS, WebRTC",
+        link: "https://github.com/mweaver87/SigmaHacks3_API"
+    }
     
 ];
 
