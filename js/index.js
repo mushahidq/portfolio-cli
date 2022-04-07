@@ -1,4 +1,4 @@
-var banner=`
+var banner=`<div class="portfolio-banner">
                            **     ****           ** **                  ******   **       **
  ******                   /**    /**/           /**//                  **////** /**      /**
 /**///**  ******  ****** ****** ******  ******  /** **  ******        **    //  /**      /**
@@ -7,28 +7,45 @@ var banner=`
 /**///  /**   /** /**     /**    /**  /**   /** /**/**/**   /**      //**    ** /**      /**
 /**     //****** /***     //**   /**  //******  ***/**//******        //******  /********/**
 //       //////  ///       //    //    //////  /// //  //////          //////   //////// //                                  
-            `;
+            
+</div>`;
 var path = "";
 var skills = "java\t\tjavascript\t\tpython\t\tc\t\tc\+\+\t\tc#\t\truby-on-rails\t\tnode.js\t\tunity\t\texpress.js\t\tflask\t\tCOBOL\t\tarduino";
-var education = "currently_pursuing_bachelors_in computer_science_and_engineering";
-var about = "I'm Mohammed Mushahid Qureshi from Vadodara, Gujarat, India. I'm a pretty decent programmer and an avid gamer. I like working with new technologies and projects that constantly challenge my abilities.";
-var contacts = "<a target=\"_blank\" class=\"contact\" href=\"mailto:mushahidq@gmail.com\">email</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://github.com/mushahidq\">github</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://twitter.com/mushahidq\">twitter</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://www.linkedin.com/in/mushahidq\">linkedin</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://www.facebook.com/mushahidq\">facebook</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://www.instagram.com/mmushahidq\">instagram</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://devpost.com/mushahidq\">devpost</a>";
+var education = "I'm currently in my final year of Bachelor of Engineering in Computer Science and Engineering at The Maharaja Sayajirao University of Baroda. My coursework includs Computer Networks, Network Programming, Linux, Operating Systems, Microprocessor Architecture and Computer Graphics among other things.";
+var about = "I'm Mohammed Mushahid Qureshi from Vadodara, Gujarat, India. I'm a Training and Placement Coordinator at FTE, MSU and a Cyber Security Research Intern at Forenzy Networks. I like working with new technologies and projects that constantly challenge my abilities.";
+var socials = "Note: These provide links to my social media.\n<a target=\"_blank\" class=\"contact\" href=\"mailto:mushahidq@gmail.com\">email</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://github.com/mushahidq\">github</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://twitter.com/mushahidq\">twitter</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://www.linkedin.com/in/mushahidq\">linkedin</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://www.facebook.com/mushahidq\">facebook</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://www.instagram.com/mmushahidq\">instagram</a>\t\t<a target=\"_blank\" class=\"contact\" href=\"https://devpost.com/mushahidq\">devpost</a>";
+var experience = "Forenzy Networks, Vadodara - Security Research Intern\nAUG 2021 - PRESENT\nWorking on security research involving web-application penetration testing, network penetration testing, OWASP Top 10, system penetration testing and networking and also development of security software including a honeypot and other vulnerability scanning and assessment tools."
+var certifications = "Master the Mainframe, IBM - Coursework included IBM z/OS mainframe, REXX, COBOL, ANSIBLE, Python, Zowe, Z Open Automation Utilities etc.\n\nFrom Data to Insights with Google Cloud - Exploring and Preparing your Data with BigQuery, Creating New BigQuery Datasets and Visualizing Insights, Achieving Advanced Insights with BigQuery, Applying Machine Learning to your Data with GCP"
+
 var home_ = [
     {
         name: "about",
         value: about
     },
     {
-        name: "contacts",
-        value: contacts
+        name: "certifications",
+        value: certifications
     },
     {
         name: "education",
         value: education
     },
     {
+        name: "experience",
+        value: experience
+    },
+    {
+        name: "projects",
+        value: projects,
+        type: "dir"
+    },
+    {
         name: "skills",
         value: skills
+    },
+    {
+        name: "socials",
+        value: socials
     }
 ];
 var projects = [
@@ -142,6 +159,7 @@ $(document).ready(function() {
 
     // COMMANDS
     function cat(args) {
+
         args = args[0];
         var isValid = false;
         if (path == "" && args != null) {
@@ -158,7 +176,8 @@ $(document).ready(function() {
         }
         else if (args != null) {
             for (var i = 0; i < projects.length; i++) {
-                if (path === projects[i].name) {
+                if (path.split('/')[1] === projects[i].name) {
+                    console.log(path.split('/'));
                     if (args === "description") {
                         terminal.append(projects[i].description+"\n");
                         isValid = true;
@@ -185,27 +204,53 @@ $(document).ready(function() {
     }
 
     function cd(args) {
+        console.log(path.split('/'));
+
         args = args[0];
         var isValid = false;
-        if (path == "" && args != null) {
+        if (args == "..") {
+            if (path.split('/').length > 2) {
+                path = path.split('/').slice(0, -1).join('/');
+            }
+            else {
+                path = "";
+            }
+        }
+        else if ( args == "~"){
+            path ="";
+        }
+        else if (path == "" && args != null) {
             if (args != ".." || args != "~") {
-                for (var i = 0; i < projects.length; i++) {
-                    if (args === projects[i].name) {
-                        path = projects[i].name;
-                        isValid = true;
-                        break;
+                for (var i = 0; i < home_.length; i++) {
+                    if (args === home_[i].name) {
+                        if (home_[i].type === "dir") {
+                            path = home_[i].name;
+                            isValid = true;
+                            break;
+                        }
+                        else {
+                            terminal.append("not a directory: " + args + "\n");
+                            isValid = true;
+                            break;
+                        }
                     }
                 }
                 if (!isValid) {
                     terminal.append("dir not found: " + args + "\n");
                 }
             }
-            else{
-                path ="";
-            }
         }
-        if (args == ".." || args == "~"){
-            path ="";
+        else if (path == "projects" && args != null) {
+            for (var i = 0; i < projects.length; i++) {
+                if (args === projects[i].name) {
+                    path += '/' + projects[i].name;
+                    isValid = true;
+                    break;
+                }
+            }
+            if (!isValid) {
+                terminal.append("dir not found: " + args + "\n");
+            }
         }
     }
 
@@ -224,13 +269,20 @@ $(document).ready(function() {
 
     function ls() {
         if (path == "") {
+            for (var i = 0; i < home_.length; i++) {
+                if (home_[i].type != "dir") {
+                    terminal.append("<span>" + home_[i].name + "\t\t</span>");
+                }
+                else {
+                    terminal.append("<span class=\"dir\">" + home_[i].name + "\t\t</span>");
+                }
+            }
+            terminal.append("\n");
+        }
+        else if (path == "projects") {
             for (var i = 0; i < projects.length; i++) {
                 terminal.append("<span class=\"dir\">" + projects[i].name + "\t\t</span>");
             }
-            for (var i = 0; i < home_.length; i++) {
-                terminal.append("<span>" + home_[i].name + "\t\t</span>");
-            }
-            terminal.append("\n");
         }
         else {
             terminal.append("description\t\ttech_stack\t\tlink\n");
@@ -251,7 +303,7 @@ $(document).ready(function() {
     var prompt = "$";
     var home = "~";
     var path = "";//path from home
-    var user = "mushahid@portfolio-cli";
+    var user = "user@mushahids-portfolio-cli";
 
     var commandHistory = [];
     var historyIndex = 0;
@@ -417,6 +469,6 @@ $(document).ready(function() {
     });
     // Display welcome message and prompt
     terminal.append(banner + "\n");
-    terminal.append("Welcome to Mushahid\'s command line portfolio.\nUse the \$help to find out the commands for this interface.\nHappy Hacking.\n");
+    terminal.append("Hello There!\nI'm Mohammed Mushahid Qureshi, a CS student from India. Welcome to my command line portfolio.\nUse the \$help to find out the commands for this interface.\nHappy Hacking.\n");
     displayPrompt();
 });

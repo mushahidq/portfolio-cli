@@ -67,8 +67,34 @@ textarea, input, button {
     color: #ffffff;
 }
 
+.window {
+    width: 100%;
+}
+
+.window .terminal {
+    font-size: 12px;
+}
+
+.portfolio-banner {
+    font-size: 7px;
+}
+
 @keyframes blink {
     50% {
         color: transparent;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .window {
+        width: 100%;
+    }
+    
+    .window .terminal {
+        font-size: 16px;
+    }
+
+    .portfolio-banner {
+        font-size: 16px;
     }
 }
