@@ -1,6 +1,12 @@
 # portfolio-cli
 
-A command line portfolio. "Why?" you ask? Why not?
+A command line portfolio. A web portfolio with command line interface
+
+"Why?" you ask?
+
+Why not?
+
+__This is not a real terminal or a terminal emulator__
 
 ![Demo_Image-1](img/img.png)
 ![Demo_Image-2](img/img2.png)
